@@ -20,6 +20,7 @@ function WriteArticles() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const currentUser = useAuth((state) => state.currentUser);
+  const token = req.cookies?.token || req.headers.authorization?.split(" ")[1];
 
   const {
     register,
@@ -38,7 +39,11 @@ function WriteArticles() {
       //set loading true
       setLoading(true);
       //make POST req to save new article
-      let res = await axios.post("https://blog-app1-2.onrender.com/author-api/article", articleObj, { withCredentials: true });
+      let res = await axios.post("https://blog-app1-2.onrender.com/author-api/article", articleObj, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }, withCredentials: true
+      });
       //navigate to AuthorArticles
       if (res.status === 201) {
         toast.success("Article published successfully")

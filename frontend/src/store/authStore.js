@@ -6,6 +6,7 @@ export const useAuth = create((set) => ({
   loading: false,
   isAuthenticated: false,
   error: null,
+  token: res.data?.token,
   login: async (userCred) => {
     // const { role, ...userCredObj } = userCredWithRole;
     try {

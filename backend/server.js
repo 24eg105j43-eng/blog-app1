@@ -12,9 +12,6 @@ config();
 //create express app
 const app = exp();
 //enable cors
-
-import cors from "cors";
-
 app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [

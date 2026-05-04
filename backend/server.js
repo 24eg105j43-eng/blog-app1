@@ -13,8 +13,8 @@ config();
 const app = exp();
 //enable cors
 app.use(cors({
-  origin:['http://localhost:5173'],
-  credentials:true
+  origin: ['http://localhost:5173', 'https://blog-app1-ochre.vercel.app'],
+  credentials: true
 }))
 //add cookie parser middeleware
 app.use(cookieParser())
@@ -49,7 +49,7 @@ app.use((req, res, next) => {
 
 //Error handling middleware
 app.use((err, req, res, next) => {
-  console.log("error is ",err)
+  console.log("error is ", err)
   console.log("Full error:", JSON.stringify(err, null, 2));
   //ValidationError
   if (err.name === "ValidationError") {

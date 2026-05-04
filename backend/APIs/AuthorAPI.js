@@ -12,9 +12,7 @@ authorApp.post("/article", verifyToken("AUTHOR"), async (req, res) => {
   //console.log(req.user);
   let user = req.user;
   //check author
-  let author = await UserModel.findById(articleObj.author);
   //cross check emails
-
   let author = await UserModel.findById(articleObj.author);
   if (!author) {
     return res.status(404).json({ message: "Invalid author" });

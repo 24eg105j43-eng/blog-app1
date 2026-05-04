@@ -20,7 +20,7 @@ function WriteArticles() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const currentUser = useAuth((state) => state.currentUser);
-  const token = req.cookies?.token || req.headers.authorization?.split(" ")[1];
+  const token = useAuth((state) => state.token);
 
   const {
     register,

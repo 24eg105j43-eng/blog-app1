@@ -12,10 +12,26 @@ config();
 //create express app
 const app = exp();
 //enable cors
+
+import cors from "cors";
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://blog-app1-ochre.vercel.app', 'https://blog-app1-6g8ahqh2s-24eg105j43-engs-projects.vercel.app'],
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://blog-app1-ochre.vercel.app",
+      "https://blog-app1-6g8ahqh2s-24eg105j43-engs-projects.vercel.app"
+    ];
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
-}))
+}));
+
 //add cookie parser middeleware
 app.use(cookieParser())
 //body parser middleware

@@ -29,7 +29,7 @@ function Register() {
   //When user registration submitted
   const onUserRegister = async (userObj) => {
     console.log(userObj);
-    let {profileImageUrl}=userObj
+    let { profileImageUrl } = userObj
     // file + userObj -->FormData
     //create ForMData object
     const formData = new FormData();
@@ -43,12 +43,12 @@ function Register() {
     if (profileImageUrl?.[0]) {
       formData.append("profileImageUrl", profileImageUrl[0]);
     }
-   console.log(profileImageUrl)
+    console.log(profileImageUrl)
     try {
       //start loading
       setLoading(true);
       //make HTTP POST req to create User in backend
-      let res = await axios.post("http://localhost:4000/auth/users", formData,{withCredentials:true});
+      let res = await axios.post("https://blog-app1-2.onrender.com/auth/users", formData, { withCredentials: true });
 
       if (res.status === 201) {
         //navigate to Login

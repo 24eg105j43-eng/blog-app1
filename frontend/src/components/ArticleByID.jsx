@@ -35,7 +35,7 @@ function ArticleByID() {
   const { register, handleSubmit } = useForm();
 
   const user = useAuth((state) => state.currentUser);
-  console.log("user ",user)
+  console.log("user ", user)
 
   const [article, setArticle] = useState(location.state || null);
   const [loading, setLoading] = useState(false);
@@ -50,7 +50,7 @@ function ArticleByID() {
       setLoading(true);
 
       try {
-        const res = await axios.get(`http://localhost:4000/user-api/article/${id}`, { withCredentials: true });
+        const res = await axios.get(`https://blog-app1-2.onrender.com/user-api/article/${id}`, { withCredentials: true });
 
         setArticle(res.data.payload);
       } catch (err) {
@@ -80,7 +80,7 @@ function ArticleByID() {
 
     try {
       const res = await axios.patch(
-        "http://localhost:4000/author-api/articles",
+        "https://blog-app1-2.onrender.com/author-api/articles",
         { articleId: article._id, isArticleActive: newStatus },
         { withCredentials: true },
       );
@@ -114,14 +114,14 @@ function ArticleByID() {
     //add artcileId
     commentObj.articleId = article._id;
     console.log(commentObj);
-    let res = await axios.put("http://localhost:4000/user-api/articles", commentObj, { withCredentials: true });
+    let res = await axios.put("https://blog-app1-2.onrender.com/user-api/articles", commentObj, { withCredentials: true });
     if (res.status === 200) {
-      
+
       setArticle(res.data.payload);
     }
   };
 
- // console.log("article",article)
+  // console.log("article",article)
 
 
   if (loading) return <p className={loadingClass}>Loading article...</p>;

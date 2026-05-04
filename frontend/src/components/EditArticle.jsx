@@ -33,23 +33,23 @@ function EditArticle() {
   useEffect(() => {
     if (!article) return;
 
-     setValue("title", article.title);
-     setValue("category", article.category);
-     setValue("content", article.content);
+    setValue("title", article.title);
+    setValue("category", article.category);
+    setValue("content", article.content);
   }, [article]);
 
   const updateArticle = async (modifiedArticle) => {
-  
+
     //add articleId to modified article
-    modifiedArticle.articleId=article._id;
+    modifiedArticle.articleId = article._id;
     //make PUT req to update article
-    let res=await axios.put("http://localhost:4000/author-api/articles",
+    let res = await axios.put("https://blog-app1-2.onrender.com/author-api/articles",
       modifiedArticle,
-      {withCredentials:true})
+      { withCredentials: true })
     //naviagte to articleById component
-   if(res.status===200){
-    navigate(`/article/${article._id}`,{state:res.data.payload})
-   }
+    if (res.status === 200) {
+      navigate(`/article/${article._id}`, { state: res.data.payload })
+    }
   };
 
   return (

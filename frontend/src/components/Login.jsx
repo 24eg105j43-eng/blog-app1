@@ -12,7 +12,7 @@ import {
   linkClass,
   loadingClass,
 } from "../styles/common";
-import { NavLink, useNavigate, useLocation } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { useAuth } from "../store/authStore";
 import { useEffect } from "react";
 import {toast} from 'react-hot-toast'
@@ -50,7 +50,7 @@ function Login() {
         navigate("/admin-profile");
       }
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, currentUser, navigate]);
 
   //deal with loading
   if (loading) {

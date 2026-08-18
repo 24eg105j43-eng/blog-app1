@@ -27,6 +27,7 @@ import {
   commentText,
 } from "../styles/common.js";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 function ArticleByID() {
   const { id } = useParams();
@@ -61,7 +62,7 @@ function ArticleByID() {
     };
 
     getArticle();
-  }, [id]);
+  }, [id, article]);
 
   const formatDate = (date) => {
     return new Date(date).toLocaleString("en-IN", {

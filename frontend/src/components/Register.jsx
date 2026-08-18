@@ -213,8 +213,8 @@ function Register() {
           </div>
 
           {/* SUBMIT */}
-          <button type="submit" className={submitBtn}>
-            Create Account
+          <button type="submit" className={submitBtn} disabled={loading}>
+            {loading ? "Creating account..." : "Create Account"}
           </button>
         </form>
 

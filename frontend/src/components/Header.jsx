@@ -33,7 +33,8 @@ function Header() {
 
         {/* LOGO */}
         <NavLink to="/" className={navBrandClass}>
-          MyBlog
+          <span className="grid size-8 place-items-center rounded-xl bg-slate-900 text-sm font-black text-white">M</span>
+          <span>MyBlog</span>
         </NavLink>
 
         <ul className={navLinksClass}>
@@ -61,7 +62,7 @@ function Header() {
                     isActive ? navLinkActiveClass : navLinkClass
                   }
                 >
-                  Register
+                  Join us
                 </NavLink>
               </li>
 
@@ -72,7 +73,7 @@ function Header() {
                     isActive ? navLinkActiveClass : navLinkClass
                   }
                 >
-                  Login
+                  Sign in
                 </NavLink>
               </li>
             </>

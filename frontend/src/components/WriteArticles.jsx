@@ -26,7 +26,6 @@ function WriteArticles() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
   //save article

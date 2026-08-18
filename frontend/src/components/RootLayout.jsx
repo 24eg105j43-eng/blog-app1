@@ -13,15 +13,15 @@ function RootLayout() {
 
   useEffect(()=>{
     checkAuth()
-  },[])
+  },[checkAuth])
 
 
   return (
-    <div>
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
       <Header />
-        <div className="min-h-screen mx-32">
+        <main className="min-h-[calc(100vh-72px)]">
           <Outlet />
-        </div>
+        </main>
       <Footer />
     </div>
   );
